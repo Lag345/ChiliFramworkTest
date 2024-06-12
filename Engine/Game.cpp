@@ -38,12 +38,15 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	FrameTimer.Ticker();
 }
 
 void Game::ComposeFrame()
 {
-	for (int i = 1; i < 200; i++)
+	
+	for (int i = 1; i < 400; i++)
 	{
 		gfx.PutPixel(i, i, i, i, i);
 	}
+	float Tick = FrameTimer.GetGameLogicTickInSecond();
 }

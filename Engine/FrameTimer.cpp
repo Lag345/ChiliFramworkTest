@@ -1,0 +1,19 @@
+#include "FrameTimer.h"
+
+FrameTimer::FrameTimer()
+{
+	Last = std::chrono::steady_clock::now();
+}
+
+const float FrameTimer::GetGameLogicTickInSecond() const
+{
+	const float TimeInSeconds = Tick.count() * 1000;  //Tick count is in miliseconds.
+	return TimeInSeconds;
+}
+
+void FrameTimer::Ticker()
+{
+	Now = std::chrono::steady_clock::now();
+	Tick = Now - Last;
+	Last = Now;
+}
