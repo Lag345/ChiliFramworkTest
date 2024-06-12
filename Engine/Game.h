@@ -41,8 +41,8 @@ private:
 private:
 	MainWindow& wnd;
 	Graphics gfx;
-	FrameTimer FrameTimer;
 	/********************************/
 	/*  User Variables              */
 	/********************************/
+	FrameTimer FrameTimer;
 };
