@@ -24,7 +24,8 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	Box(50,50,1,1)
 {
 }
 
@@ -39,14 +40,21 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	FrameTimer.Ticker();
+	if (!(wnd.mouse.GetPosX() <= 0 || wnd.mouse.GetPosX() >= gfx.ScreenWidth - (1 + 50)))
+	{	
+		if (!(wnd.mouse.GetPosY() <= 0 || wnd.mouse.GetPosY() >= gfx.ScreenHeight - (1 + 50)))
+		{
+			int x = wnd.mouse.GetPosX();
+			int y = wnd.mouse.GetPosY();
+			Mouse = { float(x),float(y) };
+		}
+	}
+	Box.GetTarget(Mouse);
+	float Tick = FrameTimer.GetGameLogicTickInSecond();
+	Box.UpdateLocation(Tick);
 }
 
 void Game::ComposeFrame()
 {
-	
-	for (int i = 1; i < 400; i++)
-	{
-		gfx.PutPixel(i, i, i, i, i);
-	}
-	float Tick = FrameTimer.GetGameLogicTickInSecond();
+	gfx.DrawRectangle(Box.Location.GetX(), Box.Location.GetY(), 50, 50, {255,255,255});
 }

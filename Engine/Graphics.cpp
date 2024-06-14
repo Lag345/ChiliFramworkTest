@@ -316,6 +316,17 @@ void Graphics::PutPixel( int x,int y,Color c )
 	pSysBuffer[Graphics::ScreenWidth * y + x] = c;
 }
 
+void Graphics::DrawRectangle(int x, int y, int Height, int Breadth, Color c)
+{
+	for (int i = x; i <= x+Breadth; i++)
+	{
+		for (int j = y; j <= y+Height; j++)
+		{
+			PutPixel(i, j, c);
+		}
+	}
+}
+
 
 //////////////////////////////////////////////////
 //           Graphics Exception

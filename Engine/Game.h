@@ -24,6 +24,8 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "FrameTimer.h"
+#include "Box.h"
+#include "Vector2D.h"
 
 class Game
 {
@@ -45,4 +47,6 @@ private:
 	/*  User Variables              */
 	/********************************/
 	FrameTimer FrameTimer;
+	Box Box;
+	Vector Mouse = { 50, 50 };
 };

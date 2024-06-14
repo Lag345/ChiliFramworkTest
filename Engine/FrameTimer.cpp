@@ -7,7 +7,7 @@ FrameTimer::FrameTimer()
 
 const float FrameTimer::GetGameLogicTickInSecond() const
 {
-	const float TimeInSeconds = Tick.count() * 1000;  //Tick count is in miliseconds.
+	const float TimeInSeconds = Tick.count() ;  //Tick count is in miliseconds.
 	return TimeInSeconds;
 }
 
