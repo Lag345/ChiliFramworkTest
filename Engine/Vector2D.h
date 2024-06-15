@@ -9,5 +9,7 @@ public:
 	Vector operator+ (const Vector &vec2) const;// Return type is Vector
 	Vector operator* (const float Scaler);
 	Vector operator* (const int Scaler);
+	Vector operator- (const Vector& vec2) const;
+	static Vector Normalize(Vector& Vect);
 	float x, y;
 };

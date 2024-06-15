@@ -4,7 +4,7 @@ class FrameTimer
 {
 public:
 	FrameTimer();
-	const float GetGameLogicTickInSecond() const;
+	const float GetGameLogicTick() const;
 	void Ticker();
 private:
 	std::chrono::steady_clock::time_point Last;

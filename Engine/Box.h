@@ -8,6 +8,8 @@ public:
 	Vector Location;
 	Vector Velocity;
 	Vector Target;
+	Vector RelativeTargetVector;
+	Vector UnitRelativeTargetVector;
 	void GetTarget(Vector in_Target);
 	void UpdateLocation(float Tick);
 };
