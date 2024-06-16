@@ -4,12 +4,14 @@
 class Box
 {
 public:
-	Box(float x, float y, float vx, float vy);
+	Box() = default;
+	Box(float x, float y, float in_boxspeed);
 	Vector Location;
 	Vector Velocity;
 	Vector Target;
 	Vector RelativeTargetVector;
 	Vector UnitRelativeTargetVector;
+	float BoxSpeed;
 	void GetTarget(Vector in_Target);
 	void UpdateLocation(float Tick);
 };

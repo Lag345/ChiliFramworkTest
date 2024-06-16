@@ -7,29 +7,19 @@ Vector::Vector(float in_x, float in_y)
 	y = in_y;
 }
 
-float Vector::GetX() const
-{
-	return x;
-}
-
-float Vector::GetY() const
-{
-	return y;
-}
-
 Vector Vector::operator+(const Vector& vec2) const
 {
 	Vector Added(x + vec2.x, y + vec2.y);
 	return Added;
 }
 
-Vector Vector::operator*(const float Scaler)
+Vector Vector::operator*(const float Scaler) const
 {
 	Vector Scaled = Vector(Scaler * x , Scaler * y);
 	return Scaled;
 }
 
-Vector Vector::operator*(const int Scaler)
+Vector Vector::operator*(const int Scaler) const
 {
 	Vector Scaled = Vector(Scaler * x, Scaler * y);
 	return Scaled;
@@ -43,8 +33,8 @@ Vector Vector::operator-(const Vector& vec2) const
 
 Vector Vector::Normalize(Vector& Vect)
 {
-	float LengthSquared = float(pow(Vect.GetX(), 2.0) + pow(Vect.GetY(), 2.0));
+	float LengthSquared = float(pow(Vect.x, 2.0) + pow(Vect.y, 2.0));
 	float Length = float(sqrt(LengthSquared));
-	Vector UnitVector = { Vect.GetX() / Length, Vect.GetY() / Length };
+	Vector UnitVector = { Vect.x / Length, Vect.y / Length };
 	return UnitVector;
 }

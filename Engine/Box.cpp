@@ -1,10 +1,12 @@
 #include "Box.h"
 
-Box::Box(float x, float y, float vx, float vy)
+Box::Box(float x, float y, float in_boxspeed)
+	:
+	Location({ x,y }),
+	BoxSpeed(in_boxspeed),
+	Target(Location)
 {
-	Location = { x,y };
-	Velocity = { vx, vy };
-	Target = Location;
+
 }
 
 void Box::GetTarget(Vector in_Target)
@@ -16,12 +18,8 @@ void Box::GetTarget(Vector in_Target)
 
 void Box::UpdateLocation(float Tick)
 {
-	if (RelativeTargetVector.GetX() != 0 )
+	if (RelativeTargetVector.x != 0 && RelativeTargetVector.y != 0)
 	{
-		Location.x = Location.x + Velocity.GetX() * UnitRelativeTargetVector.GetX() * Tick;
-	}
-	if (RelativeTargetVector.GetY() != 0)
-	{
-		Location.y = Location.y + Velocity.GetY() * UnitRelativeTargetVector.GetY() * Tick;
+		Location = Location + UnitRelativeTargetVector * BoxSpeed * Tick;
 	}
 }

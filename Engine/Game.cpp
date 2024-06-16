@@ -25,7 +25,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	Box(50,50,50,50)
+	Box(50,50,100)
 {
 }
 
@@ -56,6 +56,6 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	gfx.DrawRectangle(Box.Location.GetX(), Box.Location.GetY(), 50, 50, {255,255,255});
-	gfx.DrawRectangle(Box.Location.GetX()+10, Box.Location.GetY()+10, 50-20, 50-20, { 75,0,255 });
+	gfx.DrawRectangle(Box.Location.x, Box.Location.y, 50, 50, {255,255,255});
+	gfx.DrawRectangle(Box.Location.x+10, Box.Location.y+10, 50-20, 50-20, { 200,0,0 });
 }

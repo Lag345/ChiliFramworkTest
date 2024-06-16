@@ -5,9 +5,9 @@ FrameTimer::FrameTimer()
 	Last = std::chrono::steady_clock::now();
 }
 
-const float FrameTimer::GetGameLogicTick() const
+float FrameTimer::GetGameLogicTick() const
 {
-	const float TimeInSeconds = Tick.count() ;  //Tick count is in miliseconds.
+	float TimeInSeconds = Tick.count();
 	return TimeInSeconds;
 }
 
